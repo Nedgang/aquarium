@@ -16,6 +16,8 @@ import curses
 # MAIN #
 ########
 def _main_():
+    screen = _init()
+
     curses.beep()
     screen.addstr("Test")
     screen.refresh()
@@ -25,12 +27,13 @@ def _main_():
 #############
 # FUNCTIONS #
 #############
-def init():
+def _init():
     screen = curses.initscr()  # New screen initialization
     curses.start_color()       # Allow to use colors
     curses.noecho()            # No display of keyboard
     curses.cbreak()            # Will react directly to the key
     screen.keypad(True)
+    return screen
 
 def _quit(screen):
     curses.nocbreak()
