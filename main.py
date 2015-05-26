@@ -17,12 +17,21 @@ import curses
 ########
 def _main_():
     screen = _init()
-
-    curses.beep()
-    screen.addstr("Test")
-    screen.refresh()
-
-    _quit(screen)
+    try:
+        screen.addstr("TEST DE LA MORT!!!")
+        screen.refresh()
+        while True:
+            c = screen.getch()
+            if c == ord('q'):
+                _quit(screen)
+                print('ok')
+                break
+            else:
+                screen.addstr("BOOM")
+                screen.refresh()
+    except:
+        _quit(screen)
+        print("Ça bug!")
 
 #############
 # FUNCTIONS #
