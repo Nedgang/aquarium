@@ -29,9 +29,10 @@ def _main_():
             else:
                 screen.addstr("BOOM")
                 screen.refresh()
-    except:
+    except BaseException as bug_report:
         _quit(screen)
         print("Ça bug!")
+        print(bug_report)
 
 #############
 # FUNCTIONS #
